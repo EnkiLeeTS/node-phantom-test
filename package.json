@@ -1,0 +1,11 @@
+{
+  "name": "node-phantom-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "jsmodbus": "^4.0.6",
+    "net": "^1.0.2"
+  }
+}
