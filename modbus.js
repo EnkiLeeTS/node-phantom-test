@@ -3,7 +3,8 @@ const { Buffer } = require('node:buffer');
 const net = require('net');
 
 // Modbus server details
-const serverHost = '192.168.59.231';
+// const serverHost = '192.168.59.231';
+const serverHost = '192.168.59.155';
 const serverPort = 502;
 
 // Create a TCP socket connection
@@ -14,13 +15,14 @@ const client = new Modbus.client.TCP(socket);
 socket.connect(serverPort, serverHost, () => {
   console.log('Connected to Modbus server');
 
-  client.readHoldingRegisters(0, 10)
+  client.readHoldingRegisters(0, 12)
     .then((data) => {
       console.log('Read holding registers successful');
       const fullDecodedData = data.response;
-      console.log("fullDecodedData", fullDecodedData);
+      // console.log("fullDecodedData", fullDecodedData);
       const pHvaluesAsArray = data.response._body.valuesAsArray;
-      const pHvaluesAsBuffer = data.response._body.valuesAsBuffer;
+      // const pHvaluesAsBuffer = data.response._body.valuesAsBuffer;
+      console.log(pHvaluesAsArray)
     })
     
     .catch((error) => {
